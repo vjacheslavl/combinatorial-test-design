@@ -1,0 +1,116 @@
+@green: green;
+@link-color:        black; // sea blue
+@link-color-hover:  lighten(@link-color, 30%);
+@button-after:  darken(@link-color, 10%);
+@button-padding: 5px;
+@button-radius: 7px;
+
+body {
+  margin: auto;
+}
+button {
+  color: antiquewhite;
+  padding: @button-padding;
+  background-color: @link-color;
+  border-radius: @button-radius;
+  margin: 5px;
+  font-weight: 600;
+}
+
+select {
+  width: 200px;
+}
+
+button:hover{
+background-color: @button-after;
+}
+
+a, .link {
+  color: @link-color;
+}
+a:hover {
+  color: @link-color-hover;
+}
+
+span {
+  white-space: pre-wrap;
+}
+
+.attribute {
+  border: 1px solid black;  
+  padding: @button-padding;
+  border-radius: @button-radius;
+  margin: 5px;
+  font-weight: 600;
+  width: 100px;
+  text-align: center;
+  //border: 1px solid red;
+}
+
+.valueItem, .combinationHeader {
+  color: black;
+  border: 2px solid black;
+  padding: @button-padding;
+  //border-color: black;
+  //border-width: 3px;
+  border-radius: @button-radius;
+  //border-color: black;
+  //border-width: 2px;
+  margin: 5px;
+  font-weight: 500;
+  min-width: 4rem;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.valueItem.positive {
+  border-color: green;
+  background-color: white;
+}
+
+.valueItem.happyPath {
+  background-color: lightgreen;
+}
+
+.valueItem.negative {
+  background-color: lightcoral;
+}
+
+
+.addNewItem {
+  display: inline-block;
+}
+
+a {
+  display: block;
+}
+
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+.combinationsTable {
+  border: 1px solid black;
+  width: 100%;
+  margin: 10px;
+}
+
+.combinationsTable tr,td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+#root {
+  margin: 20px;
+}
