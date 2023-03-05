@@ -22,7 +22,7 @@ export class CombinationsService {
         const testDesign = await this.testDesignRepository.getTestDesign(id);
 
         //first generate Happy Path generation
-        let generatedCombinations: Combination[] = []
+        const generatedCombinations: Combination[] = []
 
         const allAttributes = testDesign?.attributes as Attribute[]
         const happyPathCombination = this.createHappyPathCombination(allAttributes)
@@ -53,7 +53,7 @@ export class CombinationsService {
 
     private createHappyPathCombination(attributes: Attribute[]): Combination {
 
-        let result = new Map<string, Value>()
+        const result = new Map<string, Value>()
 
         for (const attribute of attributes)
         {

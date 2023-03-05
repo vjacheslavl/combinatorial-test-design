@@ -9,7 +9,7 @@ import { Value } from "../../../server/domain/TestDesign";
 const ComibinationsTable: React.FC<{}> = (props) => {
       const [loadData, setLoadData] = useState(true);
       const [combinations, updateCombinations] = useState<Combination[]>([]);
-      let params = useParams();
+      const params = useParams();
 
       const designId = params.designId;
 
@@ -17,7 +17,7 @@ const ComibinationsTable: React.FC<{}> = (props) => {
             function reloadData() {
                   async function fetchCombinations() {
                         try {
-                              var res: Combination[] = await Get(apiRoute.getRoute(`combinations?id=${designId}`));
+                              const res: Combination[] = await Get(apiRoute.getRoute(`combinations?id=${designId}`));
                               updateCombinations(res);
                               setLoadData(false);
                         } catch (error) {
