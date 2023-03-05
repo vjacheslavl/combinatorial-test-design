@@ -1,7 +1,7 @@
-import {TestDesign} from "./TestDesign";
+import { TestDesign } from './TestDesign';
 
 export interface AppStates {
-    testDesigns: TestDesign[]
+	testDesigns: TestDesign[];
 }
 
 export interface AppProps {}
