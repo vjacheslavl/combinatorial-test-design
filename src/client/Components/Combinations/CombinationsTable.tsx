@@ -6,7 +6,7 @@ import { Combination } from "../../../server/domain/Combinations";
 import ValueItem from "../Attributes/Values/ValueItem";
 import { Value } from "../../../server/domain/TestDesign";
 
-const ComibinationsTable: React.FC<{}> = (props) => {
+const ComibinationsTable: React.FC = () => {
       const [loadData, setLoadData] = useState(true);
       const [combinations, updateCombinations] = useState<Combination[]>([]);
       const params = useParams();

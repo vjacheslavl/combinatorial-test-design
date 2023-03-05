@@ -33,12 +33,13 @@ export class TestDesignRepository {
 
 
   async updateTestDesign(update: updatePayload) {
-    let data = {};
+    const data = {};
 
 
     try {
 
       if (update.payload.type === "newAttribute") {
+        
         
         TestDesignModel.updateOne(
           { _id: update.id },

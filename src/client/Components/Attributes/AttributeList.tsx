@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { Put, Get } from '../../Services';
 import { apiRoute } from '../../utils';
 
-const AttributeList: React.FC<{}> = props => {
+const AttributeList: React.FC = () => {
 	const [loadData, setLoadData] = useState(true);
 	const [testDesign, updatetestDesign] = useState<TestDesign>();
 	const params = useParams();

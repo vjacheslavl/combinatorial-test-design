@@ -37,7 +37,7 @@ export class CombinationsService {
             for (const value of attribute.values.filter((i)=>i.type!=HAPPY_PATH)) {
 
                 //name is a purpose of the test combination
-                let anotherCombination = { name: `When ${attribute.name} is ${value.name}`, values: new Map(happyPathCombination.values) }                            
+                const anotherCombination = { name: `When ${attribute.name} is ${value.name}`, values: new Map(happyPathCombination.values) }                            
 
                 anotherCombination.values.set(attribute.name,value)
                 generatedCombinations.push(anotherCombination)

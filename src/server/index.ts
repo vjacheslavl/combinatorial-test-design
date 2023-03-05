@@ -1,8 +1,7 @@
-
 import express, { Request, Response, Router, Express } from 'express';
 import bodyParser from 'body-parser';
 import router from './route';
-import DBConnect from "./dbConfigs";
+import DBConnect from './dbConfigs';
 
 // call express
 const app: Express = express(); // define our app using express
@@ -22,12 +21,12 @@ DBConnect.dbConnection();
 // Send index.html on root request
 app.use(express.static('dist'));
 app.get('/', (req: Request, res: Response) => {
-    console.log('sending index.html');
-    res.sendFile('/dist/index.html', function (err) {
-        if (err) {
-            res.status(500).send(err)
-        }
-    })
+	console.log('sending index.html');
+	res.sendFile('/dist/index.html', function (err) {
+		if (err) {
+			res.status(500).send(err);
+		}
+	});
 });
 
 // REGISTER ROUTES

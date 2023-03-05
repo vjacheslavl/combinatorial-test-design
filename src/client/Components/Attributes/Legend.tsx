@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 ["positive","happyPath", "negative"]
 
-const Legend: React.FC<{}> = () => {
+const Legend: React.FC = () => {
 
     return (
         <div>

@@ -4,7 +4,7 @@ import AddNewTestDesign from './AddNewTestDesign';
 import { Get, Post } from '../../Services';
 import { apiRoute } from '../../utils';
 
-const TestDesignList: React.FC<{}> = props => {
+const TestDesignList: React.FC = () => {
 	const [loadData, setLoadData] = useState(true);
 	const [testDesigns, updatetestDesigns] = useState<TestDesign[]>([]);
 
