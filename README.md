@@ -9,7 +9,7 @@ Can be run using docker compose to work without local mongo
 ### local development
 
 ```
-nmp install
+npm install
 npm run-script dev
 ```
 
