@@ -11,12 +11,6 @@ const ValueItem: React.FC<{
 
       const [valueType, setValueType] = useState(valueTypes.indexOf(props.content.type));
 
-
-      const changeValueTypeHandler = () => {
-            //rotate values in 0-2 interval
-            setValueType(valueType +1 == 3? 0 :valueType +1)
-      };
-
       const setValueTypeHandler = async (
       ): Promise<void> => {
             const changedValue = valueType +1 == 3? 0 :valueType +1
