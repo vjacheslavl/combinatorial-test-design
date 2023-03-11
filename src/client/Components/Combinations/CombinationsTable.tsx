@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Put, Get, Post } from "../../Services";
+import React, { useState, useEffect } from "react";
+import { Get } from "../../Services";
 import { apiRoute } from "../../utils";
 import { useParams } from "react-router-dom";
 import { Combination } from "../../../server/domain/Combinations";
 import ValueItem from "../Attributes/Values/ValueItem";
-import { Value } from "../../../server/domain/TestDesign";
+import { ValueResponse } from "../../../server/domain/TestDesignResponse";
 
 const ComibinationsTable: React.FC = () => {
       const [loadData, setLoadData] = useState(true);
@@ -60,7 +60,7 @@ const ComibinationsTable: React.FC = () => {
                               <td>Att.</td>{combinations.map((i) => <td><div className="combinationHeader">{i.name}</div></td>)}
                         </tr>
                         {columnNames.map((cn) => <tr><td>{cn}</td>
-                              {result.map((r) => <td><ValueItem content={r.get(cn) as Value} /></td>)}
+                              {result.map((r) => <td><ValueItem content={r.get(cn) as ValueResponse} /></td>)}
                         </tr>
                         )}
                   </table>

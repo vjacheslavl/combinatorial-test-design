@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import ValueItem from "./ValueItem";
 import AddNewValue from "./AddNewValue";
-import { Value } from "../../../../server/domain/TestDesign";
+import { ValueResponse } from "../../../../server/domain/TestDesignResponse";
 
 
 const ValueList: React.FC<{
-      content: Value[];
+      content: ValueResponse[];
       onSaveValue: (name: string) => any;
   }> = (props) => {
 

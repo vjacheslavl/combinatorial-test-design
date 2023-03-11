@@ -6,6 +6,6 @@ export const configs: IConfigs = {
 		port: 27017,
 		username: '',
 		password: '',
-		collection: 'test_designs'
+		collection: 'new_design'
 	}
 };

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Attribute } from '../../../server/domain/TestDesign';
+import React from 'react';
+import { AttributeResponse } from '../../../server/domain/TestDesignResponse';
 import ValueList from './Values/ValueList';
 import DeleteButton from '../Common/DeleteButton';
 
 const Attribute: React.FC<{
-	item: Attribute;
+	item: AttributeResponse;
 	onSaveValue: (attributeId: string, name: string) => any;
 }> = props => {
 	const saveValueHandler = name => {

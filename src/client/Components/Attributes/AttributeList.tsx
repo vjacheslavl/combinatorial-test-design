@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Attribute from './Attribute';
 import AddNewAttribute from './AddNewAttribute';
 import Legend from './Legend';
-import { TestDesign } from '../../../server/domain/TestDesign';
+import { TestDesignResponse } from '../../../server/domain/TestDesignResponse';
 import { useParams } from 'react-router-dom';
-import { Put, Get } from '../../Services';
+import { Post, Put, Get } from '../../Services';
 import { apiRoute } from '../../utils';
 
 const AttributeList: React.FC = () => {
 	const [loadData, setLoadData] = useState(true);
-	const [testDesign, updatetestDesign] = useState<TestDesign>();
+	const [testDesign, updatetestDesign] = useState<TestDesignResponse>();
 	const params = useParams();
 
 	const designId = params.designId;
@@ -18,7 +18,7 @@ const AttributeList: React.FC = () => {
 		function reloadData() {
 			async function fetchTestDesigns() {
 				try {
-					const res: TestDesign = await Get(apiRoute.getRoute(`testdesigns?id=${designId}`));
+					const res: TestDesignResponse = await Get(apiRoute.getRoute(`testdesigns?id=${designId}`));
 					updatetestDesign(res);
 					setLoadData(false);
 				} catch (error) {
@@ -34,9 +34,9 @@ const AttributeList: React.FC = () => {
 
 	const saveNewAttributeHandler = async (name: string): Promise<void> => {
 		try {
-			await Put(apiRoute.getRoute('testdesigns'), {
-				id: designId,
-				payload: { type: 'newAttribute', value: name }
+			await Post(apiRoute.getRoute('attributes'), {
+				designId: designId,
+				name: name
 			});
 			setLoadData(true);
 		} catch (e) {
@@ -46,9 +46,10 @@ const AttributeList: React.FC = () => {
 
 	const saveNewValueHandler = async (attributeId: string, name: string): Promise<void> => {
 		try {
-			await Put(apiRoute.getRoute('testdesigns'), {
-				id: attributeId,
-				payload: { type: 'newValue', value: name }
+			await Post(apiRoute.getRoute('values'), {
+				attributeId: attributeId,
+				name: name,
+				type: 'positive'
 			});
 			setLoadData(true);
 		} catch (e) {

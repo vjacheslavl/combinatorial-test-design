@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Value } from "../../../../server/domain/TestDesign";
-import { Put, Get, Delete } from "../../../Services";
+import React, { useState } from "react";
+import { ValueResponse } from "../../../../server/domain/TestDesignResponse";
+import { Put } from "../../../Services";
 import { apiRoute } from "../../../utils";
 
 const valueTypes = ["positive","happyPath", "negative"]
 
 const ValueItem: React.FC<{
-      content: Value
+      content: ValueResponse
 }> = (props) => {
 
       const [valueType, setValueType] = useState(valueTypes.indexOf(props.content.type));
@@ -16,10 +16,12 @@ const ValueItem: React.FC<{
             const changedValue = valueType +1 == 3? 0 :valueType +1
             try {
                   await Put(
-                        apiRoute.getRoute("testdesigns"),
+                        apiRoute.getRoute("values"),
                         {
-                              id: props.content._id,
-                              payload: { type: "setValueType", value: valueTypes[changedValue] },
+                              _id: props.content._id,
+                              attributeId: props.content.attributeId,
+                              name: props.content.name,
+                              type: valueTypes[changedValue]
                         }
                   );
                   setValueType(changedValue);
