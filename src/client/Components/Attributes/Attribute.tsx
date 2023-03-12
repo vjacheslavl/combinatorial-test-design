@@ -8,20 +8,15 @@ import { Delete } from '../../Services';
 const Attribute: React.FC<{
 	item: AttributeResponse;
 	onSaveValue: (attributeId: string, name: string) => any;
+	onDelete: (attributeId: string) => any;
 }> = props => {
 	const saveValueHandler = name => {
 		props.onSaveValue(props.item._id, name);
 	};
 
 
-	const deleteAttributeHandler = async (): Promise<void> => {
-		try {
-			await Delete(apiRoute.getRoute('attributes'), {
-				_id: props.item._id
-			});
-		} catch (e) {
-			console.log(e);
-		}
+	const deleteAttributeHandler = () => {
+		props.onDelete(props.item._id);
 	};
 
 

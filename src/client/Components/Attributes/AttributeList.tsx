@@ -4,7 +4,7 @@ import AddNewAttribute from './AddNewAttribute';
 import Legend from './Legend';
 import { TestDesignResponse } from '../../../server/domain/TestDesignResponse';
 import { useParams } from 'react-router-dom';
-import { Post, Put, Get } from '../../Services';
+import { Post, Put, Get, Delete } from '../../Services';
 import { apiRoute } from '../../utils';
 
 const AttributeList: React.FC = () => {
@@ -57,13 +57,24 @@ const AttributeList: React.FC = () => {
 		}
 	};
 
+	const deleteAttributeHandler = async (attributeId: string): Promise<void> => {
+		try {
+			await Delete(apiRoute.getRoute('attributes'), {
+				_id: attributeId
+			});
+			setLoadData(true);
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	return (
 		<React.Fragment>
 			<a href={`../`}>[Home]</a>
 			<h1>{testDesign?.name}</h1>
 			<AddNewAttribute onSave={saveNewAttributeHandler} />
 			{testDesign?.attributes.map(item => (
-				<Attribute key={item._id} item={item} onSaveValue={saveNewValueHandler} />
+				<Attribute key={item._id} item={item} onSaveValue={saveNewValueHandler} onDelete={deleteAttributeHandler} />
 			))}
 			<a href={`../combinations/${designId}`}>Generate Combinations</a>
 			<Legend />
