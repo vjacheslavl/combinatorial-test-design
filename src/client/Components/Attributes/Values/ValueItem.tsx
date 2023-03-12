@@ -20,7 +20,6 @@ const ValueItem: React.FC<{
 				type: valueTypes[changedValue]
 			});
 			setValueType(changedValue);
-                  console.log(changedValue);
 		} catch (e) {
 			console.log(e);
 		}

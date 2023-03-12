@@ -2,6 +2,8 @@ import React from 'react';
 import { AttributeResponse } from '../../../server/domain/TestDesignResponse';
 import ValueList from './Values/ValueList';
 import DeleteButton from '../Common/DeleteButton';
+import { apiRoute } from '../../utils';
+import { Delete } from '../../Services';
 
 const Attribute: React.FC<{
 	item: AttributeResponse;
@@ -11,9 +13,17 @@ const Attribute: React.FC<{
 		props.onSaveValue(props.item._id, name);
 	};
 
-    const deleteAttributeHandler = () => {
-		console.log(props.item._id)
+
+	const deleteAttributeHandler = async (): Promise<void> => {
+		try {
+			await Delete(apiRoute.getRoute('attributes'), {
+				_id: props.item._id
+			});
+		} catch (e) {
+			console.log(e);
+		}
 	};
+
 
 	return (
 		<div>

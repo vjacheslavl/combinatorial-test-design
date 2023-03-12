@@ -36,7 +36,7 @@ export class CombinationsService {
         //then generate all combinations from it by rotating each attribute one by one
         for (const attribute of allAttributes) {
             
-            const values = await this.valueRepository.getValues(id);
+            const values = await this.valueRepository.getValues(attribute._id);
             //Rotate only non happy path values
             for (const value of values.filter((i)=>i.type!=HAPPY_PATH)) {
 

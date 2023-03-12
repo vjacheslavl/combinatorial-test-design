@@ -57,10 +57,10 @@ const ComibinationsTable: React.FC = () => {
                   <div>{combinations.length} combinations generated using Linear Expansion approach</div>
                   <table className="combinationsTable">
                         <tr>
-                              <td>Att.</td>{combinations.map((i) => <td><div className="combinationHeader">{i.name}</div></td>)}
+                              <td>Att.</td>{combinations.map((i, cIdx) => <td key={cIdx}><div className="combinationHeader">{i.name}</div></td>)}
                         </tr>
-                        {columnNames.map((cn) => <tr><td>{cn}</td>
-                              {result.map((r) => <td><ValueItem content={r.get(cn) as ValueResponse} /></td>)}
+                        {columnNames.map((cn, cnIdx) => <tr key={cnIdx}><td>{cn}</td>
+                              {result.map((r, idx) => <td key={idx}><ValueItem content={r.get(cn) as ValueResponse} /></td>)}
                         </tr>
                         )}
                   </table>
