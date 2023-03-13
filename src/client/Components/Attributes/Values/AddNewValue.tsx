@@ -16,7 +16,7 @@ const AddNewAttribute: React.FC<{
     return (
         <div className="addNewItem">
             <input type="text" ref={nameInputRef}></input>
-            <button onClick={saveNewValueHandler}>+</button>
+            <button onClick={saveNewValueHandler}>+ value</button>
         </div>
     );
 };

@@ -38,7 +38,6 @@ export class TestDesignService {
 			return designResponse;
 		});
 
-		console.log(response);
 		return Promise.all(response);
 	}
 

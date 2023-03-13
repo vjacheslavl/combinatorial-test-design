@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { ValueResponse } from '../../../../server/domain/TestDesignResponse';
 import { Put } from '../../../Services';
 import { apiRoute } from '../../../utils';
+import DeleteButton from '../../Common/DeleteButton';
 
 const valueTypes = ['positive', 'happyPath', 'negative'];
 
 const ValueItem: React.FC<{
 	content: ValueResponse;
+	onDeleteValue: (valueId: string) => any;
+	canDelete: boolean;
 }> = props => {
 	const [valueType, setValueType] = useState(valueTypes.indexOf(props.content.type));
 
@@ -25,9 +28,16 @@ const ValueItem: React.FC<{
 		}
 	};
 
+	const deleteValueHandler = () => {
+		props.onDeleteValue(props.content._id);
+	};
+
 	return (
-		<div className={`valueItem ${valueTypes[valueType]}`} onClick={setValueTypeHandler}>
-			{props.content.name}
+		<div>
+			<div className={`valueItem ${valueTypes[valueType]}`} onClick={setValueTypeHandler}>
+				{props.content.name}
+			</div>
+			{props.canDelete && <DeleteButton onDelete={deleteValueHandler} />}
 		</div>
 	);
 };

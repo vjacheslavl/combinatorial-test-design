@@ -50,6 +50,10 @@ const ComibinationsTable: React.FC = () => {
             columnNames = [...result[0].keys()] as []
       }
 
+      const emptyDeleteHandler = (valueId: string) => {
+            console.log(`can't delete ${valueId}`)
+      }
+
       return (
             <div>
                   <a href={`../`}>[Home]</a>
@@ -60,7 +64,7 @@ const ComibinationsTable: React.FC = () => {
                               <td>Att.</td>{combinations.map((i, cIdx) => <td key={cIdx}><div className="combinationHeader">{i.name}</div></td>)}
                         </tr>
                         {columnNames.map((cn, cnIdx) => <tr key={cnIdx}><td>{cn}</td>
-                              {result.map((r, idx) => <td key={idx}><ValueItem content={r.get(cn) as ValueResponse} /></td>)}
+                              {result.map((r, idx) => <td key={idx}><ValueItem content={r.get(cn) as ValueResponse} canDelete={false} onDeleteValue={emptyDeleteHandler} /></td>)}
                         </tr>
                         )}
                   </table>

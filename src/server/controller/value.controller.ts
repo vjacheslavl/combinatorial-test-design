@@ -1,4 +1,5 @@
 import { Value } from '../domain/TestDesign';
+import { ValueResponse } from '../domain/TestDesignResponse';
 import { ValueService } from '../service/value.service';
 
 export class ValueController {
@@ -23,7 +24,7 @@ export class ValueController {
 		return await this.ValueService.createValue(value);
 	}
 
-	async updateValue(update: any) {
+	async updateValue(update: ValueResponse) {
 		console.log('Controller: updateValue', update);
 		return await this.ValueService.updateValue(update);
 	}

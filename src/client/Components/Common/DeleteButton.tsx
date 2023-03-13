@@ -4,9 +4,7 @@ const DeleteButton: React.FC<{
       onDelete: () => any;
 }> = props => {
 	return (
-		<div className="circle-btn" onClick={props.onDelete}>
-			<span className="circle-btn-text">x</span>
-		</div>
+		<div className="circle-btn" onClick={props.onDelete}>x</div>
 	);
 };
 

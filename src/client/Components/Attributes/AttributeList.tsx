@@ -68,13 +68,24 @@ const AttributeList: React.FC = () => {
 		}
 	};
 
+	const deleteValueHandler = async (valueId: string): Promise<void> => {
+		try {
+			await Delete(apiRoute.getRoute('values'), {
+				_id: valueId
+			});
+			setLoadData(true);
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	return (
 		<React.Fragment>
 			<a href={`../`}>[Home]</a>
 			<h1>{testDesign?.name}</h1>
 			<AddNewAttribute onSave={saveNewAttributeHandler} />
 			{testDesign?.attributes.map(item => (
-				<Attribute key={item._id} item={item} onSaveValue={saveNewValueHandler} onDelete={deleteAttributeHandler} />
+				<Attribute key={item._id} item={item} onSaveValue={saveNewValueHandler} onDelete={deleteAttributeHandler} onDeleteValue={deleteValueHandler} />
 			))}
 			<a href={`../combinations/${designId}`}>Generate Combinations</a>
 			<Legend />
