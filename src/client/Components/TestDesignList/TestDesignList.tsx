@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { TestDesign } from '../../../../server/domain/TestDesign';
+import { TestDesignResponse } from '../../../../server/domain/TestDesignResponse';
 import AddNewTestDesign from './AddNewTestDesign';
 import { Get, Post } from '../../Services';
 import { apiRoute } from '../../utils';
 
 const TestDesignList: React.FC = () => {
 	const [loadData, setLoadData] = useState(true);
-	const [testDesigns, updatetestDesigns] = useState<TestDesign[]>([]);
+	const [testDesigns, updatetestDesigns] = useState<TestDesignResponse[]>([]);
 
 	useEffect(
 		function reloadData() {
 			async function fetchTestDesigns() {
 				try {
-					const res: TestDesign[] = await Get(apiRoute.getRoute('testdesigns'));
+					const res: TestDesignResponse[] = await Get(apiRoute.getRoute('testdesigns'));
 					updatetestDesigns(res);
 					setLoadData(false);
 				} catch (error) {
@@ -30,7 +30,6 @@ const TestDesignList: React.FC = () => {
 		try {
 			await Post(apiRoute.getRoute('testdesigns'), {
 				name: name,
-				attributes: [],
 				version: '0'
 			});
 			setLoadData(true);

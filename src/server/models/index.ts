@@ -1,5 +1,3 @@
-import TestDesign from "./testDesign";
+import { TestDesignModel, ValueModel, AttributeModel } from './testDesign';
 
-export {
-    TestDesign,
-}
+export { TestDesignModel, ValueModel, AttributeModel };

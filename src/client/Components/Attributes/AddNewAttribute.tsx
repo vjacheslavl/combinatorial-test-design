@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useRef } from "react";
 
 
 const AddNewAttribute: React.FC<{
@@ -15,8 +15,8 @@ const AddNewAttribute: React.FC<{
 
     return (
         <div>
-            New attribute: <input type="text" ref={nameInputRef}></input>
-            <button onClick={createSaveHandler}>Add</button>
+            <input type="text" ref={nameInputRef}></input>
+            <button onClick={createSaveHandler}>+ attribute</button>
         </div>
     );
 };

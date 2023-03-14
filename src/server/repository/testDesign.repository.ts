@@ -1,6 +1,5 @@
-import { FilterQuery } from "mongoose";
 import { TestDesign } from "../domain/TestDesign";
-import TestDesignModel from "../models/testDesign";
+import { TestDesignModel } from "../models/testDesign";
 
 
 type updatePayload = { id: string, payload: {
